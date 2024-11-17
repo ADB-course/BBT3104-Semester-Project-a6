@@ -22,7 +22,7 @@ CREATE TABLE `employee`(
 	`employee_name` VARCHAR(50) DEFAULT NULL,
 	`department` VARCHAR(50) DEFAULT NULL,
 	`training_level` VARCHAR(50) DEFAULT NULL,
-	`employee_phone_number`
+	`employee_phone_number` VARCHAR(15) DEFAULT NULL
 );
 
 CREATE TABLE `communication logs`(
