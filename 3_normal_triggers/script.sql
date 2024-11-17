@@ -1,5 +1,4 @@
 -- Write your SQL code here
-Delimiter$$
 
 CREATE TRIGGER TRG_B_Insert_products  
 BEFORE 
