@@ -1,4 +1,5 @@
 -- Write your SQL code here
+-- View for employee communication overview
 CREATE VIEW EmployeeCommunicationOverview AS
 SELECT
     employee.employee_id,
@@ -10,6 +11,8 @@ SELECT
 FROM
     employee  
 JOIN
-    COMMUNICATION_LOG c ON e.employee_id = c.employee_id
+    communication logs ON employee.employee_id = communication logs.employee_id
 LEFT JOIN
-    SUPPLIER s ON c.supplier_id = s.supplier_id     
+    suppliers ON communication logs.supplier_id = suppliers.supplier_id  
+ORDER BY
+    employee.employee_id, communication logs.date;      
