@@ -20,6 +20,19 @@ BEGIN
     VALUES (NEW.productID, NEW.product_name, NEW.product_available);
 END;
 
+DELIMITER $$
+
+CREATE TRIGGER TRG_before_insert_communication_log
+BEFORE INSERT ON Communication logs
+FOR EACH ROW
+BEGIN
+   -- Set the current timestamp if the timestamp is not provided
+   IF NEW.current_timestamp IS NULL THEN
+      SET NEW.current_timestamp = NOW();
+   END IF;
+END $$
+
+DELIMITER ;
 
 
 
