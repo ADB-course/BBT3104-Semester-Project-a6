@@ -12,7 +12,7 @@
 ![alt text](image.png)
 
 # Enhanced Entity Relationship Diagram (EERD)
-
+![alt text](<WhatsApp Image 2024-11-07 at 23.00.45_8cdb8169.jpg>)
 
 # Database Schema
 
