@@ -8,4 +8,8 @@ SELECT
     commun ication_log.message_details,
     supplier.supplier_name
 FROM
-    employee   
+    employee  
+JOIN
+    COMMUNICATION_LOG c ON e.employee_id = c.employee_id
+LEFT JOIN
+    SUPPLIER s ON c.supplier_id = s.supplier_id     
