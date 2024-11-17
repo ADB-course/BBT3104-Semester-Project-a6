@@ -1,4 +1,5 @@
 -- Write your SQL code here
+--SAMIYA
 CREATE DATABASE unga;
 CREATE TABLE `procurement` (
 	`procurement_department_employee_code` BIGINT(10) NOT NULL,
