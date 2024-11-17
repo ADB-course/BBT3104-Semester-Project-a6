@@ -18,3 +18,4 @@
 
 
 # System Architecture
+![alt text](<WhatsApp Image 2024-11-07 at 17.23.36_93c1545c.jpg>)
