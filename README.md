@@ -3,18 +3,19 @@
 
 | **Key**                                                               | Value                                                                                                                                                                              |
 |---------------|---------------------------------------------------------|
-| **Name of Business Chosen for the Case Study**                                                       | ? |
-| **Industry**                                                       | ? |
-| **Group Name**                                                               | ? |
+| **Name of Business Chosen for the Case Study**                                                       | UNGA GROUP LIMITED |
+| **Industry**                                                       | FOOD PROCESSING INDUSTRY |
+| **Group Name**                                                               | A6 |
 | **Semester Duration**                                                 | 19<sup>th</sup> August - 25<sup>th</sup> November 2024                                                                                                                       |
 
 # Cause-and-Effect Diagram
-
+![alt text](image.png)
 
 # Enhanced Entity Relationship Diagram (EERD)
-
+![alt text](<WhatsApp Image 2024-11-07 at 23.00.45_8cdb8169.jpg>)
 
 # Database Schema
 
 
 # System Architecture
+![alt text](<WhatsApp Image 2024-11-07 at 17.23.36_93c1545c.jpg>)
