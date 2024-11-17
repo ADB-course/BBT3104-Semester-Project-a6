@@ -9,7 +9,7 @@
 | **Semester Duration**                                                 | 19<sup>th</sup> August - 25<sup>th</sup> November 2024                                                                                                                       |
 
 # Cause-and-Effect Diagram
-
+![alt text](image.png)
 
 # Enhanced Entity Relationship Diagram (EERD)
 
