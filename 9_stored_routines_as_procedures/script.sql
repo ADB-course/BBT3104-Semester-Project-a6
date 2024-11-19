@@ -20,6 +20,7 @@ BEGIN
 END $$
 
 DELIMITER ;
+
 --Supplier Communication Log Summary
 DELIMITER $$
 
