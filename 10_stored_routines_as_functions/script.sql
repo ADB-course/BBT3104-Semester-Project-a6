@@ -1,1 +1,2 @@
 -- Write your SQL code here
+--Function for the total procument cost of a product
