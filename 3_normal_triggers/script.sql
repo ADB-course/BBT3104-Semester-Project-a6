@@ -23,7 +23,7 @@ AFTER UPDATE ON products
        FOR EACH ROW
 BEGIN
     
-    INSERT INTO products (productID, product_name, product_group,product_available)
+    INSERT INTO products (productID, product_name, product_group, product_available)
     VALUES ( OLD.productID,OLD.product_name,OLD.product_group,OLD.product_available,NEW.product_available); 
 
 END;
