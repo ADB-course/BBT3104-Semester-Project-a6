@@ -13,7 +13,7 @@ CREATE TABLE `suppliers`(
 	`supplierID` BIGINT(10) NOT NULL,
 	`supplier_name` VARCHAR(50) DEFAULT NULL,
 	`supplier_number` VARCHAR(15) DEFAULT NULL,
-	`product_supplied` VARCHAR(70) DEFAULT NULL,,
+	`product_supplied` VARCHAR(70) DEFAULT NULL,
 	`productID` BIGINT(10) DEFAULT NULL
 ) ENGINE=InnoDB;
 
@@ -49,7 +49,7 @@ CREATE TABLE `products`(
 	`productID` BIGINT(10) NOT NULL,
 	`product_name` VARCHAR(50) DEFAULT NULL,
 	`product_group` VARCHAR(150) DEFAULT NULL,
-	`product_available` VARCHAR(150) DEFAULT NULL,,
+	`product_available` VARCHAR(150) DEFAULT NULL,
 	`supplierID` BIGINT(10) DEFAULT NULL,
 	`supplier_name` VARCHAR(50) DEFAULT NULL
 ) ENGINE=InnoDB;
