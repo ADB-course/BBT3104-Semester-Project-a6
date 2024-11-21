@@ -1,10 +1,12 @@
 -- Write your SQL code here
 --Product availability
-ALTER TABLE products 
-ADD CONSTRAINT chk_product_group 
-CHECK (product_group IN ('Electronics', 'Furniture', 'Groceries'));
+ALTER TABLE product_info
+ADD CONSTRAINT chk_product_available
+CHECK (product_available IN ('Yes', 'No'));
+
 --Supplier ID Posititve
-ALTER TABLE suppliers 
+ALTER TABLE suppliers
 ADD CONSTRAINT chk_supplier_id_positive 
-CHECK (supplierID > 0);
+CHECK (LENGTH(supplierID) > 0);
+
 
