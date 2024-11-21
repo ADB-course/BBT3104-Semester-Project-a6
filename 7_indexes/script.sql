@@ -1,105 +1,65 @@
 -- Write your SQL code here
---FATUMA
+--Fatuma
+--B+ Tree indexes
 
---1.PROCUREMENT ENTITY
--- B+ Tree index on Procurement department employee code
-CREATE UNIQUE INDEX idx_procurement_employee_code
-ON Procurement (ProcurementDepartmentEmployeeCode);
+-- 1. Employee Table
+CREATE INDEX idx_employee_id
+ ON Employee (Employee_ID);
+CREATE INDEX idx_employee_name 
+ ON Employee (Employee_Name);
 
--- B+ Tree index on Employee ID
-CREATE INDEX idx_procurement_employee_id
-ON Procurement (EmployeeID);
+-- 2. Supplier Table
+CREATE INDEX idx_supplier_id
+ ON Supplier (Supplier_ID);
+CREATE INDEX idx_supplier_name 
+ ON Supplier (Supplier_Name);
 
--- B+ Tree index on Supplier ID
-CREATE INDEX idx_procurement_supplier_id
-ON Procurement (SupplierID);
+-- 3. Product Table
+CREATE INDEX idx_product_id 
+ ON Product (Product_ID);
+CREATE INDEX idx_product_supplier_id
+ ON Product (Supplier_ID);
+CREATE INDEX idx_product_name
+ ON Product (Product_Name);
+CREATE INDEX idx_product_available
+ ON Product (Product_Available);
 
--- B+ Tree index on Product ID
+-- 4. Employee_Department Table
+CREATE INDEX idx_procurement_dept_employee_code
+ ON Employee_Department (Procurement_Department_Employee_Code);
+CREATE INDEX idx_employee_department_id
+ ON Employee_Department (Employee_ID);
+
+-- 5. Procurement Table
+CREATE INDEX idx_procurement_composite
+ ON Procurement (Employee_ID, Supplier_ID, Product_ID);
 CREATE INDEX idx_procurement_product_id
-ON Procurement (ProductID);
+ ON Procurement (Product_ID);
 
+-- 6. Supplier_Info Table
+CREATE INDEX idx_supplier_info_id
+ ON Supplier_Info (Supplier_ID);
+CREATE INDEX idx_supplier_phone_number
+ ON Supplier_Info (Supplier_Phone_Number);
 
---2.SUPPLIER ENTITY
--- B+ Tree index on Supplier ID (primary key)
-CREATE UNIQUE INDEX idx_supplier_id
-ON Supplier (SupplierID);
+-- 7. Product_Supplied Table
+CREATE INDEX idx_product_supplied_composite
+ ON Product_Supplied (Product_ID, Supplier_ID);
 
--- B+ Tree index on Supplier Number
-CREATE INDEX idx_supplier_number
-ON Supplier (SupplierNumber);
-
--- B+ Tree index on Product ID
-CREATE INDEX idx_supplier_product_id
-ON Supplier (ProductID);
-
-
-----3.EMPLOYEE ENTITY
--- B+ Tree index on Employee ID (primary key)
-CREATE UNIQUE INDEX idx_employee_id 
-ON Employee (EmployeeID);
-
--- B+ Tree index on Department
-CREATE INDEX idx_employee_department
-ON Employee (Department);
-
--- B+ Tree index on Employee phone number
+-- 8. Employee Phone Number Table
+CREATE INDEX idx_employee_phone_id
+ ON Employee_Phone_Number (Employee_ID);
 CREATE INDEX idx_employee_phone_number
-ON Employee (EmployeePhoneNumber);
+ ON Employee_Phone_Number (Employee_Phone_Number);
 
+-- 9. Communication Log Table
+CREATE INDEX idx_comm_log_code
+ ON Communication_Log (Communication_Log_Code);
+CREATE INDEX idx_comm_log_composite
+ ON Communication_Log (Date_of_Communication, Employee_ID, Supplier_ID);
+CREATE FULLTEXT INDEX idx_comm_log_details
+ ON Communication_Log (Details);
 
-----4.Communication Log ENTITY
--- B+ Tree index on Communication log code
-CREATE UNIQUE INDEX idx_communication_log_code 
-ON CommunicationLog (CommunicationLogCode);
-
--- B+ Tree index on Date of communication
-CREATE INDEX idx_communication_log_date 
-ON CommunicationLog (DateOfCommunication);
-
--- B+ Tree index on Employee ID 
-CREATE INDEX idx_communication_employee_id 
-ON CommunicationLog (EmployeeID);
-
--- B+ Tree index on Supplier ID 
-CREATE INDEX idx_communication_supplier_id 
-ON CommunicationLog (SupplierID);
-
--- Full-text index on Details
-CREATE FULLTEXT INDEX ON CommunicationLog (Details)
-KEY INDEX idx_communication_log_code;
-
-
----5.Supplier Liaison Entity
--- B+ Tree index on Supplier liaison code
-CREATE UNIQUE INDEX idx_supplier_liaison_code 
-ON SupplierLiaison (SupplierLiaisonCode);
-
--- B+ Tree index on Employee ID 
-CREATE INDEX idx_liaison_employee_id 
-ON SupplierLiaison (EmployeeID);
-
--- B+ Tree index on Supplier ID 
-CREATE INDEX idx_liaison_supplier_id 
-ON SupplierLiaison (SupplierID);
-
--- B+ Tree index on Communication log code
-CREATE INDEX idx_liaison_communication_log_code 
-ON SupplierLiaison (CommunicationLogCode);
-
--- B+ Tree index on Date of communication
-CREATE INDEX idx_liaison_date 
-ON SupplierLiaison (DateOfCommunication);
-
-
---6.Product Entity
--- B+ Tree index on Product ID 
-CREATE UNIQUE INDEX idx_product_id 
-ON Product (ProductID);
-
--- B+ Tree index on Product group
-CREATE INDEX idx_product_group 
-ON Product (ProductGroup);
-
--- B+ Tree index on Supplier ID 
-CREATE INDEX idx_product_supplier_id 
-ON Product (SupplierID);
+-- 10. Product_Supplier Junction Table
+CREATE INDEX idx_product_supplier_composite
+ ON Product_Supplier (Product_ID, Supplier_ID);
