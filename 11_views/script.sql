@@ -30,4 +30,6 @@ SELECT
     communication_log.date_of_communication AS communication_date, 
     communication_log.details, 
     employee.employee_name, 
-    employee.employee_phone_number      
+    employee.employee_phone_number
+FROM 
+    supplier     
