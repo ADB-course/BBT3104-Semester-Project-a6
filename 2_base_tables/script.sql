@@ -1,11 +1,12 @@
 -- Write your SQL code here
+
 DROP TABLE IF EXISTS `communication_log`;
 CREATE TABLE IF NOT EXISTS `communication_log` (
-  `communication_log_code` bigint(10) NOT NULL,
+  `communication_log_code` varchar(10) NOT NULL,
   `date_of_communication` datetime DEFAULT current_timestamp(),
   `details` varchar(250) DEFAULT NULL,
-  `employeeID` bigint(10) NOT NULL,
-  `supplierID` bigint(10) NOT NULL
+  `employeeID` varchar(10) NOT NULL,
+  `supplierID` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
