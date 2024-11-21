@@ -15,4 +15,7 @@ JOIN
 LEFT JOIN
     suppliers ON communication logs.supplier_id = suppliers.supplier_id  
 ORDER BY
-    employee.employee_id, communication logs.date;      
+    employee.employee_id, communication logs.date;
+
+-- View for supplier details
+CREATE VIEW Supplier_View AS      
