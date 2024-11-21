@@ -7,33 +7,33 @@ SELECT
     communication_log.communication_log_code,
     communication_log.date_of_communication AS communication_date,
     communication_log.details,
-    supplier.supplier_name
+    suppliers.supplier_name
 FROM
     employee  
 JOIN
-    communication logs ON employee.employeeID = communication logs.employeeID
+    communication_log ON employee.employeeID = communication_log.employeeID
 LEFT JOIN
-    suppliers ON communication logs.supplierID = suppliers.supplierID  
+    suppliers ON communication_log.supplierID = suppliers.supplierID  
 ORDER BY
-    employee.employeeID, communication log.date_of_communication;
+    employee.employeeID, communication_log.date_of_communication;
 
 -- View for supplier details
-CREATE VIEW Supplier_View AS
+REATE VIEW Supplier_View AS
 SELECT 
-    supplier.supplierID, 
-    supplier.supplier_name,  
+    suppliers.supplierID, 
+    suppliers.supplier_name,  
     product_info.productID, 
     product_info.product_name, 
     product_info.product_group, 
     product_info.product_available, 
     communication_log.date_of_communication AS communication_date, 
     communication_log.details, 
-    employee.employee_name, 
+    employee.employee_name
 FROM 
-    supplier 
+    suppliers
 JOIN 
-    product_info ON supplier.supplierID = product_info.supplierID
+    product_info ON suppliers.supplierID = product_info.supplierID
 LEFT JOIN 
-    communication_log ON supplier.supplierID = communication_log.supplierID
+    communication_log ON suppliers.supplierID = communication_log.supplierID
 LEFT JOIN 
-    employee ON communication_log.employeeID = employee.employeeID;    
+    employee ON communication_log.employeeID = employee.employeeID;
