@@ -1,5 +1,4 @@
--- Write your SQL code here
---FATUMA
+-- Write your SQL code --
 
 
 /* InnoDB is the most favourable engine because it's the most efficient and supports
