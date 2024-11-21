@@ -1,3 +1,6 @@
+-- Write your SQL code here
+--FATUMA
+
 --1.PROCUREMENT ENTITY
 -- B+ Tree index on Procurement department employee code
 CREATE UNIQUE INDEX idx_procurement_employee_code
