@@ -20,12 +20,11 @@ END $$
 DELIMITER ;
 
 
-DELIMITER ;
 --Function for the average communication frequency with a supplier
 DELIMITER $$
 
 CREATE FUNCTION calculate_avg_communication_frequency(
-    supplier_id BIGINT,
+    supplier_id VARCHAR(10),
     start_date DATE,
     end_date DATE
 )
@@ -35,23 +34,24 @@ BEGIN
     DECLARE total_communications INT;
     DECLARE date_difference INT;
     DECLARE avg_frequency DECIMAL(10, 2);
-    
+
     -- Count total communications within the date range
     SELECT COUNT(*)
     INTO total_communications
-    FROM communication_logs
+    FROM communication_log
     WHERE supplierID = supplier_id
       AND date_of_communication BETWEEN start_date AND end_date;
-    
+
     -- Calculate the number of days in the date range
     SELECT DATEDIFF(end_date, start_date) + 1
     INTO date_difference;
-    
+
     -- Calculate the average frequency
     SET avg_frequency = total_communications / date_difference;
-    
+
     RETURN COALESCE(avg_frequency, 0);
 END $$
 
 DELIMITER ;
+
 
