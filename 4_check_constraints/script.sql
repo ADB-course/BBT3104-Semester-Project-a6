@@ -1,12 +1,13 @@
 -- Write your SQL code here
---Product availability
+--Phone Number Area Code Constraint
 ALTER TABLE product_info
 ADD CONSTRAINT chk_product_available
 CHECK (product_available IN ('Yes', 'No'));
 
---Supplier ID Posititve
-ALTER TABLE suppliers
-ADD CONSTRAINT chk_supplier_id_positive 
-CHECK (LENGTH(supplierID) > 0);
+--Valid Communication Log Date Constraint
+ALTER TABLE communication_log
+ADD CONSTRAINT chk_communication_date
+CHECK (date_of_communication <= NOW());
+
 
 
