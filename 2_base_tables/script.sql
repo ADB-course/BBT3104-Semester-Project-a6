@@ -1,87 +1,175 @@
 -- Write your SQL code here
-CREATE TABLE `employee`(
-	`employeeID` BIGINT(10) NOT NULL,
-	`employee_name` VARCHAR(50) DEFAULT NULL
-);
+DROP TABLE IF EXISTS `communication_log`;
+CREATE TABLE IF NOT EXISTS `communication_log` (
+  `communication_log_code` bigint(10) NOT NULL,
+  `date_of_communication` datetime DEFAULT current_timestamp(),
+  `details` varchar(250) DEFAULT NULL,
+  `employeeID` bigint(10) NOT NULL,
+  `supplierID` bigint(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `suppliers`(
-	`supplierID` BIGINT(10) NOT NULL,
-	`supplier_name` VARCHAR(50) DEFAULT NULL
-);
+-- --------------------------------------------------------
 
-CREATE TABLE `products`(
-	`productID` BIGINT(10) NOT NULL,
-	`product_name` VARCHAR(50) DEFAULT NULL
-);
+--
+-- Table structure for table `employee`
+--
 
-CREATE TABLE `employee_department`(
-	`procurement_department_employee_code` BIGINT(10) NOT NULL,
-	`employeeID` BIGINT(10) NOT NULL
-);
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE IF NOT EXISTS `employee` (
+  `employeeID` varchar(10) NOT NULL,
+  `employee_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `procurement`(
-	`employeeID` BIGINT(10) NOT NULL,
-	` supplierID` BIGINT(10) NOT NULL,
-	 `productID` BIGINT(10) NOT NULL,
-	 `order_amount` BIGINT(50) NOT NULL
-);
+-- --------------------------------------------------------
+--
+-- Table structure for table `employee_communication`
+--
 
-CREATE TABLE `supplier_info`(
-	`supplierID` BIGINT(10) NOT NULL,
-	`supplier_name` VARCHAR(50) DEFAULT NULL,
-	`supplier_phone_number` VARCHAR(15) DEFAULT NULL
-);
+DROP TABLE IF EXISTS `employee_communication`;
+CREATE TABLE IF NOT EXISTS `employee_communication` (
+  `employeeID`varchar(10) NOT NULL,
+  `communication_log_code` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `product_supplied`(
-	`productID` BIGINT(10) NOT NULL,
-	`supplierID` BIGINT(10) NOT NULL,
-	`product_name` VARCHAR(50) DEFAULT NULL
-);
+-- --------------------------------------------------------
 
-CREATE TABLE `employee_info`(
-	`employeeID` BIGINT(10) NOT NULL,
-	`employee_name` VARCHAR(50) DEFAULT NULL,
-	`department` VARCHAR(50) DEFAULT NULL,
-	`training_level` VARCHAR(50) DEFAULT NULL
-);
+--
+-- Table structure for table `employee_department`
+--
 
-CREATE TABLE `employee_phone_number`(
-	`employeeID` BIGINT(10) NOT NULL,
-	`employee_phone_number` VARCHAR(15) DEFAULT NULL
-);
+DROP TABLE IF EXISTS `employee_department`;
+CREATE TABLE IF NOT EXISTS `employee_department` (
+  `procurement_department_employee_code` varchar(10) NOT NULL,
+  `employeeID` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `communication_log`(
-	`communication_log_code` BIGINT(10) NOT NULL,
-	`date_of_communication`datetime DEFAULT current_timestamp(),
-	`details` VARCHAR(250) DEFAULT NULL,
-	`employeeID` BIGINT(10) NOT NULL,
-	` supplierID` BIGINT(10) NOT NULL
-);
+-- --------------------------------------------------------
 
-CREATE TABLE `supplier_liaison`(
-	`supplier_liason_code` BIGINT(10) NOT NULL,
-	`employeeID` BIGINT(10) NOT NULL,
-	 `supplierID` BIGINT(10) NOT NULL
-);
+--
+-- Table structure for table `employee_info`
+--
 
-CREATE TABLE `employee_communication`(
-	`employeeID`  BIGINT(10) NOT NULL,
-	`communication_log_code` BIGINT(10) NOT NULL
-);
+DROP TABLE IF EXISTS `employee_info`;
+CREATE TABLE IF NOT EXISTS `employee_info` (
+  `employeeID` varchar(10) NOT NULL,
+  `employee_name` varchar(50) DEFAULT NULL,
+  `department` varchar(50) DEFAULT NULL,
+  `training_level` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `product_info`(
-	`productID` BIGINT(10) NOT NULL,
-	`product_name` VARCHAR(50) DEFAULT NULL,
-	`product_group` VARCHAR(150) DEFAULT NULL,
-	`product_available` VARCHAR(150) DEFAULT NULL,,
-	`supplierID` BIGINT(10) NOT NULL
-);
+-- --------------------------------------------------------
 
-CREATE TABLE `product_supplier_junction`(
-	`productID` BIGINT(10) NOT NULL,
-	`supplierID` BIGINT(10) NOT NULL
-);
-	
-	
-	
+--
+-- Table structure for table `employee_phone_number`
+--
 
+DROP TABLE IF EXISTS `employee_phone_number`;
+CREATE TABLE IF NOT EXISTS `employee_phone_number` (
+  `employeeID` varchar(10) NOT NULL,
+  `employee_phone_number` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `procurement`
+--
+
+DROP TABLE IF EXISTS `procurement`;
+CREATE TABLE IF NOT EXISTS `procurement` (
+  `employeeID` varchar(10) NOT NULL,
+  `supplierID` varchar(10) NOT NULL,
+  `productID` varchar(10) NOT NULL,
+  `order_amount` bigint(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `productID` varchar(10) NOT NULL,
+  `product_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_info`
+--
+
+DROP TABLE IF EXISTS `product_info`;
+CREATE TABLE IF NOT EXISTS `product_info` (
+  `productID` varchar(10) NOT NULL,
+  `product_name` varchar(50) DEFAULT NULL,
+  `product_group` varchar(150) DEFAULT NULL,
+  `product_available` varchar(150) DEFAULT NULL,
+  `supplierID` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_supplied`
+--
+
+DROP TABLE IF EXISTS `product_supplied`;
+CREATE TABLE IF NOT EXISTS `product_supplied` (
+  `productID` varchar(10) NOT NULL,
+  `supplierID` varchar(10) NOT NULL,
+  `product_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_supplier_junction`
+--
+
+DROP TABLE IF EXISTS `product_supplier_junction`;
+CREATE TABLE IF NOT EXISTS `product_supplier_junction` (
+  `productID` varchar(10) NOT NULL,
+  `supplierID` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+CREATE TABLE IF NOT EXISTS `suppliers` (
+  `supplierID` varchar(10) NOT NULL,
+  `supplier_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier_info`
+--
+
+DROP TABLE IF EXISTS `supplier_info`;
+CREATE TABLE IF NOT EXISTS `supplier_info` (
+  `supplierID` varchar(10) NOT NULL,
+  `supplier_name` varchar(50) DEFAULT NULL,
+  `supplier_phone_number` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier_liaison`
+--
+
+DROP TABLE IF EXISTS `supplier_liaison`;
+CREATE TABLE IF NOT EXISTS `supplier_liaison` (
+  `supplier_liason_code` varchar(10) NOT NULL,
+  `employeeID` varchar(10) NOT NULL,
+  `supplierID` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+COMMIT;
