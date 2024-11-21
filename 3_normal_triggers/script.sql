@@ -24,7 +24,7 @@ AFTER UPDATE ON product_info
 BEGIN
     
     INSERT INTO product_info (productID, product_name, product_group,product_available,supplierID)
-    VALUES (OLD.productID,OLD.product_name,OLD.product_group,OLD.product_available,NEW.product_available,OLD.supplierID); 
+    VALUES (productID, product_name, product_group, product_available,NEW.product_available, supplierID); 
 
 END;
 
