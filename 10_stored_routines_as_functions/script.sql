@@ -2,19 +2,23 @@
 --Function for the total procument cost of a product
 DELIMITER $$
 
-CREATE FUNCTION calculate_total_procurement_cost(product_id BIGINT)
+CREATE FUNCTION calculate_total_procurement_cost(product_id VARCHAR(10))
 RETURNS DECIMAL(10, 2)
 DETERMINISTIC
 BEGIN
     DECLARE total_cost DECIMAL(10, 2);
-    
-    SELECT SUM(product_cost)
+
+    -- Assuming a fixed unit cost of 100
+    SELECT SUM(order_amount * 100) -- Replace 100 with the actual cost per unit if available
     INTO total_cost
     FROM procurement
     WHERE productID = product_id;
-    
+
     RETURN COALESCE(total_cost, 0);
 END $$
+
+DELIMITER ;
+
 
 DELIMITER ;
 --Function for the average communication frequency with a supplier

@@ -26,7 +26,7 @@ DELIMITER ;
 DELIMITER $$
 
 CREATE PROCEDURE retrieve_supplier_communication_log(
-    IN supplier_id BIGINT,
+    IN supplier_id VARCHAR(10),
     IN start_date DATE,
     IN end_date DATE
 )
@@ -34,10 +34,12 @@ BEGIN
     SELECT 
         cl.date_of_communication AS Communication_Date,
         cl.details AS Communication_Details,
-        cl.employee_name AS Employee_Involved,
+        e.employee_name AS Employee_Involved,
         cl.communication_log_code AS Log_Code
     FROM 
-        communication_logs AS cl
+        communication_log AS cl
+    JOIN 
+        employee AS e ON cl.employeeID = e.employeeID
     WHERE 
         cl.supplierID = supplier_id
         AND cl.date_of_communication BETWEEN start_date AND end_date
@@ -46,3 +48,4 @@ BEGIN
 END $$
 
 DELIMITER ;
+
