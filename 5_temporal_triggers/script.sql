@@ -6,7 +6,7 @@ ON SCHEDULE EVERY 1 DAY -- the event will execute daily
 STARTS CURRENT_TIMESTAMP + INTERVAL 3 MINUTE -- Starts 3 minutes after the event is created
 DO
 BEGIN
-    UPDATE communication_log --this table has columns that can log the reminders and the employee Id 
+    UPDATE communication_log 
     SET communication_log_code = NOW() -- Set current timestamp as a reminder
     WHERE employeeID IN 
     (
