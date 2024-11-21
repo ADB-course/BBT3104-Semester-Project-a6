@@ -21,7 +21,7 @@ CREATE TABLE `employee_department`(
 
 CREATE TABLE `procurement`(
 	`employeeID` BIGINT(10) NOT NULL,
-	 supplierID` BIGINT(10) NOT NULL,
+	 `supplierID` BIGINT(10) NOT NULL,
 	 `productID` BIGINT(10) NOT NULL
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE `supplier_info`(
 );
 
 CREATE TABLE `product_supplied`(
-	productID` BIGINT(10) NOT NULL,
+	`productID` BIGINT(10) NOT NULL,
 	`supplierID` BIGINT(10) NOT NULL,
 	`product_name` VARCHAR(50) DEFAULT NULL
 );
@@ -54,13 +54,13 @@ CREATE TABLE `communication_log`(
 	`date_of_communication`datetime DEFAULT current_timestamp(),
 	`details` VARCHAR(250) DEFAULT NULL,
 	`employeeID` BIGINT(10) NOT NULL,
-	 supplierID` BIGINT(10) NOT NULL
+	`supplierID` BIGINT(10) NOT NULL
 );
 
 CREATE TABLE `supplier_liaison`(
 	`supplier_liason_code` BIGINT(10) NOT NULL,
 	`employeeID` BIGINT(10) NOT NULL,
-	 supplierID` BIGINT(10) NOT NULL
+	 `supplierID` BIGINT(10) NOT NULL
 );
 
 CREATE TABLE `employee_communication`(
@@ -72,7 +72,7 @@ CREATE TABLE `product_info`(
 	`productID` BIGINT(10) NOT NULL,
 	`product_name` VARCHAR(50) DEFAULT NULL,
 	`product_group` VARCHAR(150) DEFAULT NULL,
-	`product_available` VARCHAR(150) DEFAULT NULL,,
+	`product_available` VARCHAR(150) DEFAULT NULL,
 	`supplierID` BIGINT(10) NOT NULL
 );
 
