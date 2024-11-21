@@ -22,7 +22,8 @@ CREATE TABLE `employee_department`(
 CREATE TABLE `procurement`(
 	`employeeID` BIGINT(10) NOT NULL,
 	 `supplierID` BIGINT(10) NOT NULL,
-	 `productID` BIGINT(10) NOT NULL
+	 `productID` BIGINT(10) NOT NULL,
+	 
 );
 
 CREATE TABLE `supplier_info`(
