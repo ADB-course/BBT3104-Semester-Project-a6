@@ -15,7 +15,7 @@
 ![alt text](<WhatsApp Image 2024-11-07 at 23.00.45_8cdb8169.jpg>)
 
 # Database Schema
-
+![alt text](image-1.png)
 
 # System Architecture
 ![alt text](<WhatsApp Image 2024-11-07 at 17.23.36_93c1545c.jpg>)
